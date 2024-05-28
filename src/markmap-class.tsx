@@ -76,22 +76,26 @@ export default class MarkmapClass extends Component {
   render() {
     const { value, prompt } = this.state;
     return (
-      <>
-        <div className="">
+      <div style={{ display: 'flex', flexDirection: 'column'}}>
+        <div style={{display: 'flex', height: '200px', alignItems: 'center' }}>
           <textarea
+            style={{ width: '100%', height: '100%' }}
             className=""
             value={prompt}
             onChange={this.handlePromptChange}
           />
-          <button onClick={this.sendPrompt}>generate</button>
+          <button type="submit" onClick={this.sendPrompt} style={{height: 'auto'}}>Generate</button>
           <textarea
+            style={{ width: '100%', height: '100%'}}
             className=""
             value={value}
             onChange={this.handleChange}
           />
         </div>
-        <svg className="" ref={this.bindSvg} />
-      </>
+        <svg
+          style={{ width: '100%', height: '300px' }}
+          className="" ref={this.bindSvg} />
+      </div>
     );
   }
 }
